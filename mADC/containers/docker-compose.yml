@@ -5,8 +5,8 @@ services:
         image: madc
         container_name: madc
         volumes:
-            - /data/madc_aws_docker/madc/config/flask/:/config
-            - /data/madc_aws_docker/madc/studies/:/studies
+            - /data/mADC/config/flask/:/config
+            - /data/mADC/studies/:/studies
         environment:
             - GUNICORN_WORKERS=1
             - CELERY_WORKERS=1
@@ -15,6 +15,8 @@ services:
             nofile:
                 soft: 65536
                 hard: 65536
+        ports:
+            - "5000:5000"  # Port mapping as a list item
 
 networks:
     default:
